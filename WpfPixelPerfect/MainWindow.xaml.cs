@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Windows.Forms;
+
 namespace WpfPixelPerfect
 {
     /// <summary>
@@ -22,6 +24,26 @@ namespace WpfPixelPerfect
         public MainWindow()
         {
             InitializeComponent();
+
+            this.loadButton.Click += (o, e) =>
+            {
+                var dialog = new OpenFileDialog();
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var source = new BitmapImage();
+
+                    source.BeginInit();
+                    source.UriSource = new Uri(dialog.FileName, UriKind.Absolute);
+                    source.EndInit();
+
+                    this.screen.Source = source;
+                }
+
+            
+            };
+
+            this.screen.MouseLeftButtonDown += (o, e) => this.DragMove();
         }
     }
 }

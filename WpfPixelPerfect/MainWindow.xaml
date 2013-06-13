@@ -1,8 +1,16 @@
 ﻿<Window x:Class="WpfPixelPerfect.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" SizeToContent="WidthAndHeight" Background="Transparent" AllowsTransparency="True" WindowStyle="None">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0" Name="loadButton" Content="Load" Height="24" Width="75"  />
+        
+        <Image Grid.Row="1" Name="screen" Opacity="0.4" />
         
     </Grid>
 </Window>
