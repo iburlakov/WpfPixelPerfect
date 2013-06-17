@@ -44,6 +44,8 @@ namespace WpfPixelPerfect
             };
 
             this.screen.MouseLeftButtonDown += (o, e) => this.DragMove();
+            this.controlPanel.MouseLeftButtonDown += (o, e) => this.DragMove();
+            this.close.Click += (o, e) => this.Close();
         }
     }
 }

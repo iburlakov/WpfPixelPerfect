@@ -8,29 +8,31 @@
         AllowsTransparency="True"
         WindowStyle="None">
     
-    <Grid Background="Transparent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" >
-            <Button Name="loadButton" Content="Load Image" Height="24" Width="75" VerticalAlignment="Center"  />
-            <Slider Name="opacitySlider" Width="150" Minimum="0.1" Maximum="1.0" Value="0.4" Margin="20 0 0 0" VerticalAlignment="Center"  />
-            <TextBlock Text="{Binding Path=Value, ElementName=opacitySlider, StringFormat=Opacity: {0:0.0}}" VerticalAlignment="Center" />
-        </StackPanel>
+        <Border Name="controlPanel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" CornerRadius="8 8 0 0" BorderBrush="Gray" Background="GhostWhite" Width="400" HorizontalAlignment="Center" >
+            <Grid Margin="8 8 8 4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-            <Button Content="Get Help" HorizontalAlignment="Right" />
-            <Button Content="Close" HorizontalAlignment="Right" />
-        </StackPanel>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" >
+                    <Button Name="loadButton" Content="Load Image"  VerticalAlignment="Center"  />
+                    <Slider Name="opacitySlider" Width="150" Minimum="0.1" Maximum="1.0" Value="0.4" Margin="10 0 0 0" VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding Path=Value, ElementName=opacitySlider, StringFormat={}{0:0.0}}" Margin="5 0 0 0" VerticalAlignment="Center" />
+                </StackPanel>
 
-
-        <Image Grid.Row="1" Name="screen" Opacity="{Binding Path=Value, ElementName=opacitySlider}" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button Name="close" Content="Close" Margin="10 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </Border>
         
+        <Image Grid.Row="1" Name="screen" Opacity="{Binding Path=Value, ElementName=opacitySlider}" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" />      
     </Grid>
 </Window>
