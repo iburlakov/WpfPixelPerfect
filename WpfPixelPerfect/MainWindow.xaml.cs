@@ -39,8 +39,38 @@ namespace WpfPixelPerfect
 
                     this.screen.Source = source;
                 }
+            };
 
-            
+            this.MouseDown += (o, e) =>
+            {
+                this.Focus();
+            };
+            this.KeyDown += (o, e) =>
+            {
+                switch (e.Key)
+                {
+                    case Key.Right:
+                        this.Left++;
+                        e.Handled = true;
+                        break;
+
+                    case Key.Left:
+                        this.Left--;
+                        e.Handled = true;
+                        break;
+
+                    case Key.Up:
+                        this.Top--;
+                        e.Handled = true;
+                        break;
+
+                    case Key.Down:
+                        this.Top++;
+                        e.Handled = true;
+                        break;
+
+                    default: return;
+                }
             };
 
             this.screen.MouseLeftButtonDown += (o, e) => this.DragMove();

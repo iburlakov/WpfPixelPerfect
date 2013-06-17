@@ -6,7 +6,7 @@
         MinWidth="400"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStyle="None">
+        WindowStyle="None" WindowStartupLocation="CenterScreen" Focusable="True">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -14,7 +14,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Border Name="controlPanel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" CornerRadius="8 8 0 0" BorderBrush="Gray" Background="GhostWhite" Width="400" HorizontalAlignment="Center" >
+        <Border Name="controlPanel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" CornerRadius="8 8 0 0" BorderBrush="Gray" Background="GhostWhite" Width="400" HorizontalAlignment="Center">
             <Grid Margin="8 8 8 4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -33,6 +33,6 @@
             </Grid>
         </Border>
         
-        <Image Grid.Row="1" Name="screen" Opacity="{Binding Path=Value, ElementName=opacitySlider}" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" />      
+        <Image Grid.Row="1" Name="screen" Opacity="{Binding Path=Value, ElementName=opacitySlider}" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left"/>      
     </Grid>
 </Window>
