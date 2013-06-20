@@ -45,6 +45,7 @@ namespace WpfPixelPerfect
             {
                 this.Focus();
             };
+
             this.KeyDown += (o, e) =>
             {
                 switch (e.Key)
@@ -72,6 +73,8 @@ namespace WpfPixelPerfect
                     default: return;
                 }
             };
+
+            this.MouseWheel += (o, e) => this.opacitySlider.Value += 0.05 * (e.Delta > 0 ? 1 : -1); ;
 
             this.screen.MouseLeftButtonDown += (o, e) => this.DragMove();
             this.controlPanel.MouseLeftButtonDown += (o, e) => this.DragMove();
