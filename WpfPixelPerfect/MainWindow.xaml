@@ -34,6 +34,7 @@
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <Button Name="close" Content="Close" />
+                    <TextBlock Text="{Binding Path=Version, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, StringFormat=v.{0}}" VerticalAlignment="Center" Margin="5,0,0,0" Foreground="#FF8F8F93" />
                 </StackPanel>
             </Grid>
         </Border>
